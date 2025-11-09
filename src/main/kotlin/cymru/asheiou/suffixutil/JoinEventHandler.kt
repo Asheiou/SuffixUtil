@@ -15,14 +15,17 @@ class JoinEventHandler(val plugin: JavaPlugin) : Listener {
   fun onJoin(event: PlayerJoinEvent) {
     if (!plugin.config.getBoolean("enabled", false))
       return
+    plugin.logger.info("Checking...")
+
     @Suppress("unchecked_cast")
     (plugin.config.getStringList("suffixes"))
-      .filterNot { event.player.hasPermission("group.$it") }
+      .filterNot { event.player.hasPermission("lib.suffix.$it") }
       .forEach { suffix ->
-        PermissionManager.permissionUpdate(event.player.uniqueId, "group.$suffix", true)
+        PermissionManager.permissionUpdate(event.player.uniqueId, "lib.suffix.$suffix", true)
         MessageLaterTask(event.player,
           "You've unlocked the suffix " + SuffixMenu.formatSuffix(suffix, true) +
-                  "<reset> for playing during a limited-time event!")
+                  "<reset> for playing during a limited-time event! You can equip it by running <aqua>/suffix</aqua>.")
+          .runTaskLater(plugin, 20L)
       }
   }
 }

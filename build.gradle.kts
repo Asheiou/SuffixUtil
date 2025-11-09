@@ -5,7 +5,8 @@ plugins {
 }
 
 group = "cymru.asheiou"
-version = "1.0-SNAPSHOT"
+description = "SuffixUtil"
+version = "1.0"
 
 repositories {
   mavenCentral()

@@ -2,3 +2,8 @@ name: SuffixUtil
 version: '${version}'
 main: cymru.asheiou.suffixutil.SuffixUtil
 api-version: '1.21'
+commands:
+  suffixreload:
+    description: Reload SuffixUtil
+    permission: suffixutil.reload
+    usage: /<command>
