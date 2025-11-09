@@ -1,0 +1,4 @@
+name: SuffixUtil
+version: '${version}'
+main: cymru.asheiou.suffixutil.SuffixUtil
+api-version: '1.21'
